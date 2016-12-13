@@ -17,7 +17,7 @@
 GTEST_DIR = ..
 
 # Where to find user code.
-USER_DIR = .
+USER_DIR = ./word_query_class/
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -38,6 +38,9 @@ GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 FILES = $(foreach d, $(USER_DIR), $(wildcard $(d)/*.cpp))
 OBJS = $(patsubst %.cpp, %.o, $(FILES))
 # House-keeping build targets.
+
+#vpath %.c ./wrod_query_class/
+#vpath %.cpp ./wrod_query_class/
 
 all : $(TESTS)
 
