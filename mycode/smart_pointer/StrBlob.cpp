@@ -50,7 +50,7 @@ const string& StrBlob::back() const{
 
 void StrBlob::pop_back(){
     check(0,"pop_back on empty StrBlob");
-    return data->pop_back();
+    data->pop_back();
 }
 
 StrBlobPtr StrBlob::begin(){
