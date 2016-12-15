@@ -31,6 +31,10 @@ public:
     std::set<line_no>::iterator end(){
     	return lines->end();
     }
+    std::shared_ptr<std::vector<std::string>> 
+    get_file(){
+    	return file;
+    }
 private:
     std::string sought; //query wrod
     std::shared_ptr<std::set<line_no>> lines; //line_no

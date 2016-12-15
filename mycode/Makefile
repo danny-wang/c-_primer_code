@@ -17,7 +17,7 @@
 GTEST_DIR = ..
 
 # Where to find user code.
-USER_DIR = ./simulate_vector/
+USER_DIR = ./advanced_word_query/
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
