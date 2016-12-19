@@ -17,7 +17,7 @@
 GTEST_DIR = ..
 
 # Where to find user code.
-USER_DIR = ./advanced_word_query/
+USER_DIR = ./FolderAndMessage/
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
@@ -45,7 +45,7 @@ OBJS = $(patsubst %.cpp, %.o, $(FILES))
 all : $(TESTS)
 
 clean :
-	rm -f $(TESTS)  gtest_main.a *.o
+	rm -f $(TESTS)  gtest_main.a *.o  $(USER_DIR)*.o
 
 .PHONY :clean
 # Builds gtest.a and gtest_main.a.
