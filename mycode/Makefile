@@ -17,7 +17,7 @@
 GTEST_DIR = ..
 
 # Where to find user code.
-USER_DIR = ./allocator/
+USER_DIR = ./MinHeap/
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
