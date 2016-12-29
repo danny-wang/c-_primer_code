@@ -17,7 +17,7 @@
 GTEST_DIR = ..
 
 # Where to find user code.
-USER_DIR = ./MinHeap/
+USER_DIR = ./MurmurHash/
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
