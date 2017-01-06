@@ -9,6 +9,7 @@
  * Author: danny
  *
  * Created on December 10, 2016, 3:27 PM
+ * Description: simulate vector<std::string>
  */
 
 #ifndef STRBLOB_H
