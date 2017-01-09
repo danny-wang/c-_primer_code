@@ -17,7 +17,7 @@
 GTEST_DIR = ..
 
 # Where to find user code.
-USER_DIR = ./swap_without_exception/
+USER_DIR = ./replacement_of_virtual_function/
 
 # Flags passed to the preprocessor.
 # Set Google Test's header directory as a system directory, such that
