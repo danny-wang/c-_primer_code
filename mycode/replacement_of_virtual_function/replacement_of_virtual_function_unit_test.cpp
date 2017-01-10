@@ -1,9 +1,10 @@
-#include "strategy.h"
+//#include "strategy.h"
+#include "FunctionPointers.h"
 #include <iostream>
 #include "gtest/gtest.h"
 using namespace std;
 
-TEST(StrategyTest, normal) {
+/*TEST(StrategyTest, normal) {
   GameCharacter gc;
   EXPECT_EQ(gc.healthValue(), 1);
   EvilBadGuy ebg(new SlowHealthLoser());
@@ -12,4 +13,11 @@ TEST(StrategyTest, normal) {
   EXPECT_EQ(ebg2.healthValue(), 3);
   EyeCandyCharacter ecc(new FastHealthLoser());
   EXPECT_EQ(ecc.healthValue(), 3);
+}
+*/
+TEST(FunctionPointersTest, normal) {
+  EvilBadGuy ebg1(loseHealthQuickly);
+  EvilBadGuy ebg2(loseHealthSlowly);
+  EXPECT_EQ(ebg1.healthValue(),1);
+  EXPECT_EQ(ebg2.healthValue(),2);
 }
