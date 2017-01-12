@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+//Description: 堆实际上是一棵完全二叉树
+//  最小堆 ：根结点的键值是所有堆结点键值中最小者的堆。
 template<class T>
 class MinHeap
 {
@@ -41,6 +43,7 @@ public:
         }
         _index++;
         _minHeap[_index] = x;
+        adjustUp(_index);
         return true;
     }
     void deleteMin(){
