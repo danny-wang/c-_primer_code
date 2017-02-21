@@ -1,3 +1,4 @@
+//default input ABC##DE#G##F###
 #pragma once
 #include<iostream>
 #include<stack>
@@ -48,17 +49,17 @@ void PreOrder(BiTree T){
 		PreOrder(T->rchild);
 	}
 }
-//中序遍历  
-void InOrder(BiTree T){  
-    if(T != NULL){  
-        //访问左子结点  
-        InOrder(T->lchild);  
-        //访问根节点  
-        Visit(T);  
-        //访问右子结点  
-        InOrder(T->rchild);  
-    }  
-}  
+//中序遍历
+void InOrder(BiTree T){
+    if(T != NULL){
+        //访问左子结点
+        InOrder(T->lchild);
+        //访问根节点
+        Visit(T);
+        //访问右子结点
+        InOrder(T->rchild);
+    }
+}
 //后序遍历
 void PostOrder(BiTree T){
 	if(T != NULL){

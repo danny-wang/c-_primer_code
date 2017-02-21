@@ -58,7 +58,7 @@ TEST(BinarySearchTree_test, Normal) {
 
 
 TEST(SmallHeap_Test, Normal) {
- 
+
         MinHeap<int> jb(10);
         jb.add(20);
         jb.add(18);
@@ -90,7 +90,8 @@ TEST(SmallHeap_Test, Normal) {
         //     printf("%d\n",p[i]);
         // }
 }
-Test(Bianry_tree_test,function){
+
+TEST(Bianry_tree_test,function){
     using namespace bt;
     BiTree T;
 	CreateBiTree(T);
