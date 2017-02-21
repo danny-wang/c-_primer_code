@@ -1,6 +1,7 @@
 #include "AVL_Tree.h"
 #include "BinarySearchTree.h"
 #include "SmallHeap.h"
+#include "BinaryTree.h"
 #include "gtest/gtest.h"
 #include <string>
 #include <iostream>
@@ -89,4 +90,29 @@ TEST(SmallHeap_Test, Normal) {
         //     printf("%d\n",p[i]);
         // }
 }
-
+Test(Bianry_tree_test,function){
+    using namespace bt;
+    BiTree T;
+	CreateBiTree(T);
+	printf("先序遍历：\n");
+	PreOrder(T);
+	printf("\n");
+	printf("先序遍历(非递归)：\n");
+	PreOrder2(T);
+	printf("\n");
+	printf("中序遍历：\n");
+	InOrder(T);
+	printf("\n");
+	printf("中序遍历(非递归)：\n");
+	InOrder2(T);
+	printf("\n");
+	printf("后序遍历：\n");
+	PostOrder(T);
+	printf("\n");
+	printf("后序遍历(非递归)：\n");
+	PostOrder2(T);
+	printf("\n");
+	printf("层次遍历：\n");
+	LevelOrder(T);
+	printf("\n");
+}
