@@ -3,7 +3,7 @@
 #include<stack>
 #include<queue>
 using namespace std;
-
+namespace bt{
 //二叉树结点
 typedef struct BiTNode{
 	//数据
@@ -186,4 +186,5 @@ void LevelOrder(BiTree T){
 			queue.push(p->rchild);
 		}
 	}
+}
 }
