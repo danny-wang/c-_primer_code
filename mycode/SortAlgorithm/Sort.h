@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <limits.h>
 using namespace std;
 /**
 template<typename T>
@@ -134,3 +135,92 @@ void select_sort(vector<T>& a){
 /**
 算法性能：将最内层循环中的比较视为基本操作，其执行次数为(n-1+1)*(n-1)/2=n(n-1)/2，其时间复杂度为O(n*n)，本算法的额外空间只有一个temp，因此空间复杂度为O(1)。
 **/
+
+/**
+堆排序
+
+算法思想：堆是一种数据结构，最好的理解堆的方式就是把堆看成一棵完全二叉树，
+这个完全二叉树满足任何一个非叶节点的值，都不大于（或不小于）其左右孩子节点的值。
+若父亲大孩子小，则这样的堆叫做大顶堆；若父亲小孩子大，这样的堆叫做小顶堆。
+根据堆的定义，其根节点的值是最大（或最小），因此将一个无序序列调整为一个堆，就可以找出这个序列的最大（或最小）值，
+然后将找出的这个值交换到序列的最后（或最前），这样有序序列元素增加1个，无序序列中元素减少1个，对新的无序序列重复这样的操作，
+就实现了序列排序。堆排序中最关键的操作是将序列调整为堆，
+整个排序的过程就是通过不断调整使得不符合堆定义的完全二叉树变为符合堆定义的完全二叉树的过程。
+
+堆排序执行过程（大顶堆）：
+
+（1）从无序序列所确定的完全二叉树的第一个非叶子节点开始，从右至左，从下至上，对每个节点进行调整，最终将得到一个大顶堆。
+将当前节点（a）的值与其孩子节点进行比较，如果存在大于a值的孩子节点，则从中选出最大的一个与a交换。
+当a来到下一层的时候重复上述过程，直到a的孩子节点值都小于a的值为止。
+（2）将当前无序序列中第一个元素，在树中是根节点（a）与无序序列中最后一个元素（b）交换。
+a进入有序序列，到达最终位置，无序序列中元素减少1个，有序序列中元素增加1个，此时只有节点b可能不满足堆的定义，对其进行调整。
+
+（3）重复过程2，直到无序序列中的元素剩下1个时排序结束。
+you can find code in DataStructs/SmallHeap
+**/
+/**
+算法性能：完全二叉树的高度为[log(n+1)]，即对每个节点调整的时间复杂度为O(logn)，
+基本操作总次数是两个并列循环中基本操作次数相加，则整个算法时间复杂度为O(logn)*n/2+O(logn)*(n-1)，即O(nlogn)。
+额外空间只有一个temp，因此空间复杂度为O(1)。
+**/
+
+/**
+归并排序
+
+算法思想：其核心就是“两两归并”，
+首先将原始序列看成每个只含有单独1个元素的子序列，两两归并，形成若干有序二元组，则第一趟归并排序结束
+，再将这个序列看成若干个二元组子序列，继续两两归并，形成若干有序四元组，则第二趟归并排序结束
+以此类推，最后只有两个子序列，再进行一次归并，即完成整个归并排序。
+**/
+template<class T> 
+void merge(T A[],int low,int mid,int high)
+{
+    //low to mid as the left array   mid+1 to high as the right array
+    int llen = mid-low+2;
+    int rlen = high-mid+1;
+    T *left = (T*)new T[llen];
+    T *right = (T*)new T[rlen];
+    //copy the low to mid to the temp array left
+    for (int i=0;i<llen-1;i++)
+    {
+        left[i] = A[low+i];
+    }
+    for (int i=0;i<rlen-1;i++)
+    {
+        right[i] = A[mid+1+i];
+    }
+    //set the sentinel
+    left[llen-1] = INT_MAX;
+    right[rlen-1]= INT_MAX;
+    //merge the two array and copy to A[low,high];
+    int j = 0;
+    int k = 0;
+    for (int i = low; i < high+1 ;i++)
+    {
+        if (left[j] < right[k])
+        {
+            A[i] = left[j];
+            j++;
+        }
+        else
+        {
+            A[i] = right[k];
+            k++;
+        }
+    }
+   delete [] left;
+   delete [] right;
+}
+
+template<class T> 
+void merge_sort(T A[],int low,int high)
+{
+    int mid = (low+high)/2;
+    if (low < high)
+    {
+        merge_sort(A,low,mid);
+        merge_sort(A,mid+1,high);
+        merge(A,low,mid,high);
+    }
+}
+

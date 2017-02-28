@@ -68,3 +68,16 @@ TEST(Sort, SelectSort) {
 	}
 	cout<<endl;
 }
+TEST(Sort, MergeSort) {
+	int a[]={9,7,5,8,100,2,6,8,4};
+	merge_sort(a,0,sizeof(a)/sizeof(int));
+	EXPECT_EQ(2,a[0]);
+	EXPECT_EQ(4,a[1]);
+	EXPECT_EQ(5,a[2]);
+	EXPECT_EQ(6,a[3]);
+	EXPECT_EQ(7,a[4]);
+	for(auto i : a){
+		cout<<i<<" ";
+	}
+	cout<<endl;
+}
